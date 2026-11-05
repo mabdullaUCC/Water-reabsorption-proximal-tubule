@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Proximal Tubule: Water Reabsorption</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:#c9d4c8;font-family:Verdana,"DejaVu Sans",sans-serif;color:#1d2a1d}
+#wrap{max-width:1200px;margin:0 auto;padding:12px 12px 28px}
+#bar{display:flex;flex-wrap:wrap;gap:8px;margin:2px 0 10px;align-items:center}
+#bar span{font-size:13px;color:#4a5a48;margin-right:2px}
+.sb{--c:#555;border:2px solid var(--c);background:rgba(255,255,255,.35);color:#1d2a1d;border-radius:999px;padding:6px 14px;font:inherit;font-size:14px;cursor:pointer}
+.sb.on{background:var(--c);color:#fff}.sb.g{--c:#6b7a68}
+.sb.dot::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--c);margin-right:7px}.sb.dot.on::before{background:#fff}
+svg{display:block;width:100%;height:auto;user-select:none}
+#info{margin-top:10px;background:#bcc7b8;border-radius:10px;padding:12px 14px;font-size:15px;line-height:1.5;min-height:74px}
+table{width:100%;border-collapse:collapse;margin-top:14px;font-size:14px;text-align:center}
+th{background:#8a9c88;color:#fff;padding:9px 8px}td{padding:8px}
+tr:nth-child(even) td{background:#bcc7b8}tr:nth-child(odd) td{background:#d3dcd1}
+.tw{overflow-x:auto}table{min-width:560px}
+</style></head><body>
+<div id="wrap"><div id="bar"><span>Steps:</span></div>
+<svg id="fig" viewBox="0 0 1300 800" xmlns="http://www.w3.org/2000/svg" font-family="Verdana,'DejaVu Sans',sans-serif">
+<defs>
+<linearGradient id="gg" x1="0" x2="1"><stop offset="0" stop-color="#d0d0d0"/><stop offset="1" stop-color="#b8b8b8"/></linearGradient>
+<linearGradient id="cg" x1="0" x2="1"><stop offset="0" stop-color="#b5b5b5"/><stop offset=".8" stop-color="#f4f4f4"/><stop offset="1" stop-color="#fff"/></linearGradient>
+<clipPath id="pc"><rect x="30" y="60" width="1240" height="730" rx="18"/></clipPath>
+<pattern id="tj" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#e08f7a"/><rect width="4" height="8" fill="#b5442f"/></pattern>
+<marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10Z" fill="#111"/></marker>
+</defs>
+<rect width="1300" height="800" fill="#c9d4c8"/>
+<text x="650" y="34" font-size="24" font-weight="bold" text-anchor="middle" fill="#111">PROXIMAL TUBULE: WATER REABSORPTION</text>
+<g clip-path="url(#pc)"><rect x="30" y="60" width="230" height="730" fill="url(#gg)"/></g>
+<path d="M1115,172 L1115,770 A70,24 0 0 0 1255,770 L1255,172 Z" fill="#ffcccc"/>
+<ellipse cx="1185" cy="172" rx="70" ry="24" fill="#ffe3e3"/>
+<rect x="260" y="125" width="540" height="440" rx="40" fill="url(#cg)" stroke="#fff" stroke-width="7"/>
+<rect x="260" y="625" width="540" height="150" rx="40" fill="url(#cg)" stroke="#fff" stroke-width="7"/>
+<rect x="262" y="560" width="52" height="70" fill="url(#tj)" stroke="#8a3a2a" stroke-width="2"/>
+<text x="530" y="100" font-size="20" text-anchor="middle" fill="#111">Cell of the proximal tubule</text>
+<g font-size="20" fill="#111"><text x="48" y="92" font-weight="bold">Lumen</text><text x="1252" y="92" font-weight="bold" text-anchor="end">Peritubular capillary</text></g>
+<g font-size="15" fill="#33404c"><text x="48" y="598">Tight junction</text><text x="955" y="470" text-anchor="middle" font-size="17">Interstitium</text></g>
+<line x1="170" y1="602" x2="256" y2="602" stroke="#33404c" stroke-width="2" marker-end="url(#ah)"/>
+<g id="dyn"></g><g id="tk"></g></svg>
+<div id="info"></div>
+<div class="tw"><table><tr><th>Segment</th><th>% filtrate reabsorbed</th><th>Mechanism of reabsorption</th><th>Hormones involved</th></tr>
+<tr><td>PCT</td><td>67%</td><td>Passive</td><td>None</td></tr>
+<tr><td>LoH</td><td>15%</td><td>Descending thin limb only; passive</td><td>None</td></tr>
+<tr><td>DT</td><td>0%</td><td>No water reabsorption</td><td>None</td></tr>
+<tr><td>Late DT &amp; CD</td><td>~8–17%</td><td>Passive</td><td>ADH, ANP</td></tr></table></div></div>
+<script>
+const $=s=>document.querySelector(s);
+const K={W:['Water via AQP1','#2b7fb8'],'1':['1 Solute uptake','#8d8a1b'],'2a':['2a Basal exit','#c2751f'],'2b':['2b Lateral exit','#6a5aa8'],'3':['3 Starling forces','#b8505e']};
+const INFO={W:'<b>Water</b> crosses the proximal tubule cell through aquaporin-1 (AQP1) channels on both the luminal and the basolateral membrane. This route does <b>not</b> require ADH, so water reabsorption in the proximal tubule is passive.',
+'1':'<b>Step 1.</b> Osmotically active solutes (Na⁺, glucose, amino acids, HCO₃⁻ and others) are reabsorbed from the lumen into the cell. This makes the lumen slightly more dilute and the cell more concentrated, which pulls water in through AQP1.',
+'2a':'<b>Step 2a.</b> Solutes leave the cell across the basal membrane (for example Na⁺ by the Na⁺–K⁺ ATPase) into the interstitium. Water follows the solute, so the fluid stays isosmotic.',
+'2b':'<b>Step 2b.</b> Solutes also leave across the lateral membrane into the lateral intercellular space between neighbouring cells. Water follows, and the tight junction (hatched) sits at the luminal end of this space.',
+'3':'<b>Step 3.</b> Starling forces move the reabsorbed isosmotic fluid into the peritubular capillary. Capillary oncotic pressure (πc) is high and hydrostatic pressure is low, so fluid is drawn in. About 67% of the filtrate is reabsorbed in the PCT.'};
+const DEF='Water follows reabsorbed solute, so fluid leaves the proximal tubule isosmotic with plasma. Select a step above to animate it; the other pathways fade so you can follow each one.';
+const dl=(d,k,m=1)=>`<path d="${d}" fill="none" stroke="#111" stroke-width="2.6" stroke-dasharray="3 6" stroke-linecap="round" ${m?'marker-end="url(#ah)"':''}/>`;
+const bd=(n,x,y)=>`<circle cx="${x}" cy="${y}" r="17" fill="#f4cf7a" stroke="#333" stroke-width="2"/><text x="${x}" y="${y+1}" font-size="17" font-weight="bold" text-anchor="middle" dominant-baseline="central" fill="#111">${n}</text>`;
+const tx=(t,x,y,s=16,a='start')=>`<text x="${x}" y="${y}" font-size="${s}" fill="#111" text-anchor="${a}" dominant-baseline="central">${t}</text>`;
+const ch=x=>`<rect x="${x-14}" y="190" width="28" height="9" fill="#a52020"/><rect x="${x-14}" y="222" width="28" height="9" fill="#a52020"/>`;
+const el=(k,i)=>`<g class="el" data-k="${k}">${i}</g>`;
+let h='';
+h+=el('W',tx('H₂O',48,210,20)+'<line x1="100" y1="210" x2="1180" y2="210" stroke="#111" stroke-width="2.6" marker-end="url(#ah)"/>'+ch(260)+ch(800)+tx('AQP1',280,254,16)+tx('AQP1',780,254,16,'end')+tx('Does NOT require ADH',530,186,16,'middle'));
+h+=el('1',dl('M100 330 L520 330','1')+bd('1',330,296));
+h+=el('2a',dl('M520 330 L1180 330')+bd('2a',740,296)+tx('Basal',730,362,15));
+h+=el('2b',dl('M610 330 Q680 330 680 400 L680 555','2b',0)+bd('2b',630,505)+tx('Lateral',705,505,15));
+h+=el('3',dl('M680 555 Q680 590 720 590 L1180 590')+bd('3',1030,556)+`<rect x="1135" y="602" width="100" height="44" fill="#fff3d6" stroke="#b89a5a" stroke-width="2"/><text x="1185" y="625" font-size="22" text-anchor="middle" dominant-baseline="central" fill="#111">↑π<tspan font-size="14" dy="6">c</tspan></text>`);
+$('#dyn').innerHTML=h;
+// moving tokens
+const RT=[['W',[[110,210],[1180,210]],'ww',6],['1',[[110,330],[520,330]],'ss',4],['2a',[[520,330],[1180,330]],'sw',5],['2b',[[610,330],[670,332],[680,380],[680,560]],'sw',4],['3',[[680,560],[684,585],[720,590],[1180,590]],'sw',5.5]];
+const TKN={s:['Solute','#8d8a1b'],w:['H₂O','#2b7fb8']};
+let th='';const T=[];
+RT.forEach(([k,pts,kinds,dur])=>{let L=0;const c=[0];for(let i=1;i<pts.length;i++){L+=Math.hypot(pts[i][0]-pts[i-1][0],pts[i][1]-pts[i-1][1]);c.push(L)}
+[...kinds].forEach((kd,j)=>{const[l,col]=TKN[kd],w=l.length*10+22;
+th+=`<g class="tk" style="display:none"><rect x="${-w/2}" y="-13" width="${w}" height="26" rx="13" fill="${col}"/><text font-size="15" font-weight="bold" fill="#fff" text-anchor="middle" dominant-baseline="central">${l}</text></g>`;
+T.push({k,pts,c,L,dur,ph:j/kinds.length+(k==='W'?0:.07)})})});
+$('#tk').innerHTML=th;const tks=[...document.querySelectorAll('.tk')];
+// buttons
+const act=new Set();let last=null;const bar=$('#bar');
+Object.keys(K).forEach(k=>{const b=document.createElement('button');b.className='sb dot';b.dataset.k=k;b.style.setProperty('--c',K[k][1]);b.textContent=K[k][0];b.onclick=()=>{if(act.has(k))act.delete(k);else{act.add(k);last=k}if(!act.has(last))last=[...act].pop()||null;upd()};bar.appendChild(b)});
+[['All',()=>{Object.keys(K).forEach(k=>act.add(k));last='W'}],['Clear',()=>{act.clear();last=null}]].forEach(([n,f])=>{const b=document.createElement('button');b.className='sb g';b.textContent=n;b.onclick=()=>{f();upd()};bar.appendChild(b)});
+function upd(){const any=act.size>0;document.querySelectorAll('.el').forEach(e=>e.setAttribute('opacity',any&&!act.has(e.dataset.k)?.28:1));
+document.querySelectorAll('.sb[data-k]').forEach(b=>b.classList.toggle('on',act.has(b.dataset.k)));
+$('#info').innerHTML=last?INFO[last]+(act.size>1?`<br><span style="font-size:13px;opacity:.75">Showing ${act.size} items; the text describes the one you picked last.</span>`:''):DEF}
+function loop(ts){const t=ts/1000;
+T.forEach((o,i)=>{const g=tks[i],on=act.has(o.k);g.style.display=on?'':'none';if(!on)return;
+const u=(t/o.dur+o.ph)%1,d=u*o.L;let s=1;while(s<o.c.length-1&&o.c[s]<d)s++;
+const a=o.pts[s-1],b=o.pts[s],f=(d-o.c[s-1])/((o.c[s]-o.c[s-1])||1);
+g.setAttribute('transform',`translate(${(a[0]+(b[0]-a[0])*f).toFixed(1)},${(a[1]+(b[1]-a[1])*f).toFixed(1)})`);
+g.setAttribute('opacity',Math.min(1,u*8,(1-u)*8).toFixed(2))});
+requestAnimationFrame(loop)}
+upd();requestAnimationFrame(loop);
+</script></body></html>
